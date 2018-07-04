@@ -1,6 +1,7 @@
 # node-pwa
 #基于pwa渐进式应用，利用node+mongodb开发的简易通讯录
 #目录
+```
 |---admin //后台管理页面（基于webpack+vue开发）
     |----src源文件
          |----assets  //相关引入资源（包括js,less,img）
@@ -22,7 +23,9 @@
     |-----mine.js     文件类型
     |-----xss.js    xss处理
     |-----index.js  //启动服务入口文件
-    
+```
    #admin 启用步奏
+```
    1->  npm install
    2->  npm run dev
+```
