@@ -1,0 +1,187 @@
+.content{
+	flex-direction:row;
+	flex:1;
+	width:100%;
+	height:100%;
+}
+.leftbox{
+	width:260px;
+	height:100%;
+	background-color:#d7d7d7;
+	ul{
+		padding:10px;
+		li{
+			line-height: 35px;
+			padding:0 5px;
+			cursor: pointer;
+			&:hover{
+				background-color:#ccc;
+			}
+		}
+	}
+}
+.rightbox{
+	padding:20px;
+	margin:10px;
+	flex:1;
+}
+.userbox{
+	ul{
+		li{
+			line-height: 30px;
+			padding: 10px;
+			strong{
+				display:inline-block;
+				width:120px;
+				vertical-align: top;
+			}
+			.username{
+				display:inline-block;
+				width:240px;
+				height:28px;
+				border:1px solid #d7d7d7;
+				padding: 0 5px;
+			}
+			input{
+				width:240px;
+				height:30px;
+				border:1px solid #d7d7d7;
+			}
+			.edit{
+				a{
+					padding:3px 10px;
+					background-color:#d7d7d7;
+					margin:0 10px;
+				}
+			}
+			.groupsel{
+				display:inline-block;
+				width:250px;
+				vertical-align: top;
+				position: relative;
+				h4{
+					padding:0 5px;
+					border:1px solid #d7d7d7;
+					line-height: 28px;
+					height:28px;
+				}
+				ul{
+					width:248px;
+					position: absolute;
+					left:0;
+					top:29px;
+					background-color:#fff;
+					border:1px solid #d7d7d7;
+					z-index: 1;
+					li{
+						padding:0 10px;
+						line-height: 28px;
+						&:hover{
+							background-color:#e0e0e0;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+			input{
+				line-height: 28px;
+				border:1px solid #d7d7d7;
+				outline: none;
+				padding:0 5px;
+			}
+		}
+	}
+	table{
+		//width:100%;
+		thead{
+			background-color:#cdcdcd;
+		}
+		th,td{
+			width:260px;
+			padding:5px 10px;
+			border:1px solid #d7d7d7;
+			.groupsel{
+				width:300px;
+				position: relative;
+				h4{
+					padding:0 5px;
+					border:1px solid #d7d7d7;
+					line-height: 28px;
+					height:28px;
+				}
+				ul{
+					width:298px;
+					position: absolute;
+					left:0;
+					top:29px;
+					background-color:#fff;
+					border:1px solid #d7d7d7;
+					z-index: 1;
+					li{
+						padding:0 10px;
+						line-height: 28px;
+						&:hover{
+							background-color:#e0e0e0;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+			input{
+				line-height: 28px;
+				border:1px solid #d7d7d7;
+				outline: none;
+				padding:0 5px;
+			}	
+		}
+		.edit{
+			a{
+				padding:3px 10px;
+				background-color:#d7d7d7;
+				margin:0 10px;
+			}
+		}
+	}
+}
+.grouplist{
+	display:flex;
+	flex-direction:row;
+	.headimg{
+		width:200px;
+		height:160px;
+		background-color:red;
+		margin-right:20px;
+	}
+	.personinfo{
+		line-height: 28px;
+		max-width: 600px;
+		padding:10px 0;
+		flex:1;
+		strong{
+			font-weight: 600;
+		}
+		.detailsinfo{
+			display: -webkit-box;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+		}
+	}
+	.operationbox{
+		width:300px;
+		height:120px;
+		line-height: 120px;
+		text-align: center;
+		a{
+			display:inline-block;
+			margin: 10px;
+			width:60px;
+			height:60px;
+			line-height: 30px;
+			background-color:red;
+			border-radius: 100%;
+			vertical-align: middle;
+		}
+	}
+}

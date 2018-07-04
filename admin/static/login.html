@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>papa login</title>
+		<meta charset="utf-8"/>
+		<link rel=stylesheet href="css/login.css"/>
+	</head>
+	<body id="bodybox">
+		<div class="topbar" id="topbar">
+			<div class="backdown"></div>
+			<div class="xyact-info">
+				<div class="head">
+					<img class="headimg" src="img/logo.png" />
+				</div>
+				<h1 class="xyact-name">相遇.meet</h1>
+			</div>
+		</div>
+		<div class="loginbg">
+			<div class="loginarea">
+				<div class="boxarea">
+					<div class="passlogin">
+						<!-- <form role="form" action="" method="post"> -->
+							<ul>
+								<!-- <input type="hidden" name="act" value="pagelogin"/> -->
+								<li class="inbtn" id="username"><label class="one"></label><input type="text" name="username" placeholder="请输入用户名" id="usernameval"></li>
+								<li class="inbtn" id="pwd"><label class="two"></label><input type="password" name="password" placeholder="请输入密码" id="pwdval"></li>
+								<!-- <li class="inbtn" id="keypwd"><label class="tre"></label><input type="password" name="checkpwd" placeholder="请输入将军令动态码" id="keypwdval"></li> -->
+								<li class="subbtn"><input type="button" value="登录" id="subbtn"></li>
+							</ul>
+							<p class="checkinfo" id="errmsg"></p>
+						<!-- </form> -->
+					</div>
+					<div class="segline">
+						<i></i>
+						<span>或</span>
+						<i></i>
+					</div>
+					<div class="openlogin">
+						<!-- <a href="/papa/oalogin/">OPENID登录</a> -->
+					</div>
+				</div>
+				<div class="boxintro">
+					<p class="introtit"><i></i>请用<span>chrome</span>登录获得最佳体验。</p>
+				</div>
+			</div>
+			<div class="logininfo">
+		
+			</div>
+		</div>
+		<script>
+		window.onload=function(){
+				var login={
+					//判断是否是内网
+					baseurl:"http://127.0.0.1:8888",
+					is_inner_login:false,
+					createxhr(options){
+						var that = this;
+						var str=[];
+						for(let key in options.data){
+							str.push(key+"="+options.data[key]);
+						}
+						str=str.join("&")
+						var xhr=new XMLHttpRequest();
+						if(options.type.toLowerCase()==='get'){
+							xhr.open(options.type,options.url+"?"+str,true);
+							xhr.setRequestHeader("Content-type","application/json");
+							xhr.send()
+						}
+						if(options.type.toLowerCase()==='post'){
+							xhr.open(options.type,options.url,true);
+							xhr.setRequestHeader("Content-type","application/json");
+							xhr.send(str)
+						}
+						xhr.onreadystatechange = function(){
+							if(xhr.readyState == 4){
+								console.log("999")
+						        if(xhr.status == 200){
+						        	var data=JSON.parse(xhr.response);
+						            options.success(data)
+						        }
+						    }else{
+						    	//console.log("9990000")
+						    	//options.error(xhr)
+						    }
+						}
+					},
+					outlogin(){
+						var that = this;
+						that.createxhr({
+							url:that.baseurl+"/outlogin/",
+							data:{},
+							dataType:"json",
+							type:"post",
+							success:function(data){
+								console.log(data)
+							},
+							error:function(data){
+								console.log(data)
+								alert("登录错误！");
+							}
+						})
+					},
+					//获取dom用id的方式
+					seldom:function(obj){
+						return document.getElementById(obj)
+					},
+					bindevent:function(){
+						var that = this;
+						that.seldom("bodybox").onkeydown=function(e){
+							var e=e||event;
+							if(e.keyCode==13){
+								loginfun();
+							}
+						}
+						that.seldom("subbtn").onclick=function(){
+							loginfun();
+						}
+						function loginfun(){
+							var d={
+								username:that.seldom("usernameval").value,
+								pwd:that.seldom("pwdval").value
+							}
+							if(d.username==""||/^\s+$/.test(d.username)||d.pwd==""||/^\s+$/.test(d.pwd)){
+								that.seldom("errmsg").innerHTML="用户名和密码不能为空！";
+								return;
+							}
+							that.createxhr({
+								url:that.baseurl+"/login/",
+								data:d,
+								dataType:"json",
+								type:"post",
+								success:function(data){
+									console.log(data);
+									if(!data.succ){
+										that.seldom("errmsg").innerHTML=data.mess;
+									}else{
+										window.location="/";
+									}
+								},
+								error:function(data){
+									console.log(data)
+									alert("登录错误！");
+								}
+							})
+						}
+					}
+				}
+				//初始化
+				//login.getlogininfo();
+				login.outlogin();
+				login.bindevent();
+			}
+		</script>
+	</body>
+</html>

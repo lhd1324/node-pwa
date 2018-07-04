@@ -1,0 +1,199 @@
+@charset "gb2312";
+/*reset.less*/
+/* CSS Document */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+ul,
+li,
+div,
+p,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #2a2a2a;
+}
+input {
+  -webkit-appearance: none;
+  outline: none;
+}
+* {
+  outline: none;
+  webkit-focus-ring-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+.hide {
+  display: none;
+}
+body,
+html {
+  width: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Arial, HelveticaNeue, Helvetica, "BBAlpha Sans", sans-serif;
+  font-weight: normal;
+}
+/* *{-webkit-backface-visibility: hidden;-moz-backface-visibility: hidden;-ms-backface-visibility: hidden;backface-visibility: hidden;} 用于解决某些情况下出现闪屏的问题，若无则不加*/
+p,
+a,
+li,
+span {
+  font-size: 0.28rem;
+}
+h1 {
+  font-size: 0.32rem;
+}
+h2 {
+  font-size: 0.34rem;
+}
+h3 {
+  font-size: 0.3rem;
+}
+h4 {
+  font-weight: normal;
+  font-size: 0.3rem;
+}
+h5 {
+  font-size: 0.28rem;
+}
+/*html{ font-size: 312.5%; } */
+@media screen and (max-width: 359px) and (orientation: portrait) {
+  html {
+    font-size: 266.67%;
+  }
+}
+@media screen and (min-width: 360px) and (max-width: 374px) and (orientation: portrait) {
+  html {
+    font-size: 300%;
+  }
+}
+@media screen and (min-width: 384px) and (max-width: 399px) and (orientation: portrait) {
+  html {
+    font-size: 320%;
+  }
+}
+@media screen and (min-width: 400px) and (max-width: 413px) and (orientation: portrait) {
+  html {
+    font-size: 333.33%;
+  }
+}
+@media screen and (min-width: 414px) and (max-width: 431px) and (orientation: portrait) {
+  html {
+    font-size: 345%;
+  }
+}
+@media screen and (min-width: 432px) and (max-width: 479px) and (orientation: portrait) {
+  html {
+    font-size: 360%;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 639px) and (orientation: portrait) {
+  html {
+    font-size: 400%;
+  }
+}
+@media screen and (min-width: 640px) and (max-width: 749px) and (orientation: portrait) {
+  html {
+    font-size: 266.67%;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1079px) and (orientation: portrait) {
+  html {
+    font-size: 217.014%;
+  }
+}
+@media screen and (min-width: 1080px) and (orientation: portrait) {
+  html {
+    font-size: 533.33%;
+  }
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  background: url(../img/bg.jpg) no-repeat center;
+  background-size:100% 100%;
+}
+.main {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  margin: 0;
+  padding:0;
+}
+.main .slogan{
+  width:5.5rem;
+  text-align: center;
+  margin:1.5rem auto;
+  font-size:.60rem;
+  color:#1592de;
+}
+.main .loginbox{
+  width:5.63rem;
+  text-align: center;
+  margin:.6rem auto;
+  font-size:.30rem;
+  color:#1592de;
+}
+.main .loginbox .inputbox{
+  width:5.63rem;
+  height:.79rem;
+  margin:.5rem 0;
+  text-align: center;
+  font-size:.30rem;
+  color:#1592de;
+  background:url(../img/inputbg.png) no-repeat center;
+  background-size:100% 100%;
+}
+.main .loginbox input{
+  width:5.2rem;
+  height:100%;
+  margin:0;
+  padding:0 .2rem;
+  font-size:.30rem;
+  color:#1592de;
+  border:none;
+  outline: none;
+  background:none;
+
+}
+.main .loginbox .errinfo{
+  width:5.5rem;
+  text-align: center;
+  margin:.2rem auto;
+  font-size:.30rem;
+  color:red;
+}
+.main .loginbox .subbtn{
+  display:block;
+  width:5.33rem;
+  height:1.03rem;
+  line-height: 1.03rem;
+  text-align: center;
+  margin:.2rem auto;
+  font-size:.36rem;
+  color:#fff;
+  background:url(../img/btnbg.png) no-repeat center;
+  background-size:100% 100%;
+}

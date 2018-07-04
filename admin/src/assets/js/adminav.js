@@ -1,0 +1,243 @@
+import errortip from '../../comm/errortip'
+export default {
+	name: 'adminav',
+	data () {
+	  	return {
+		    msg: 'Welcome to Your Vue.js App',
+		    curstate:1,
+		    curuser:{
+		    	id:"",
+		    	name:"",
+		    	groupname:"",
+		    	groupid:"",
+		    	state:false,
+		    	groupstate:false,
+		    	editstate:false
+		    },
+		    adduser:{name:"",groupid:"",groupname:"",groupstate:false},
+		    userlist:[{id:1,username:"哈哈哈",groupname:1,groupname:"那你呢"}],
+		    grouplist:[{groupid:1,groupname:"回火欧珀"}],
+		    curgroup:{groupid:"",groupname:""},
+		    groupname:"",
+		    addgroupname:"位欧尼",
+		    errormsg:"",
+		    showstate:false
+		}
+	},
+	components: {
+		errortip
+	},
+	created(){
+		this.getgrouplist();
+		this.getuserlist()
+	},
+	mutated(){
+
+	},
+	watchs:{
+		showstate(){
+			console.log(888)
+		}
+	},
+	methods:{
+		getgrouplist(){
+			let that = this;
+			this.$root.createxhr({
+				url:"/searchgrouplist/",
+				data:{},
+				type:"post",
+				success(res){
+					console.log(res)
+					if(res.succ){
+						that.grouplist=res.data.data;
+						console.log(that.grouplist)
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		getuserlist(){
+			let that = this;
+			this.$root.createxhr({
+				url:"/searchuserlist/",
+				data:{
+				},
+				type:"post",
+				success(res){
+					console.log(res)
+					if(res.succ){
+						for(let i=0;i<res.data.data.length;i++){
+							for(let j=0;j<that.grouplist.length;j++){
+								if(res.data.data[i].groupid==that.grouplist[j]._id){
+									res.data.data[i].groupname=that.grouplist[j].groupname;
+								}
+							}
+						}
+						that.userlist=res.data.data;
+						console.log(that.userlist);
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		//
+		creategroup(){
+			let that = this;
+			if(that.groupname==""||/^\s+$/.test(that.groupname)){
+				that.errormsg="分组名不能为空!";
+			    setTimeout(function(){
+			      that.errormsg="";
+			    },1500)
+				return;
+			}
+			this.$root.createxhr({
+				url:"/creategroup/",
+				data:{groupname:that.groupname},
+				type:"post",
+				success(data){
+					console.log(data)
+					if(data.succ){
+						that.getgrouplist();
+						that.groupname="";
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		//
+		addcurgroup(ele){
+			let that =this;
+			that.adduser.groupid=ele._id;
+			that.adduser.groupname=ele.groupname;
+			that.adduser.groupstate=false;
+		},
+		createuser(){
+			let that = this;
+			this.$root.createxhr({
+				url:"/createuser/",
+				data:{
+					name:that.adduser.name,
+					groupid:that.adduser.groupid
+				},
+				type:"post",
+				success(data){
+					console.log(data)
+					if(data.succ){
+						that.getuserlist();
+						that.curstate=1;
+						that.adduser.name="";
+						that.adduser.name="";
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		//选择修改用户
+		editcuruser(element){
+			let that = this;
+			that.curuser.id=element._id;
+			that.curuser.name=element.name;
+			that.curuser.groupid=element.groupid;
+			that.curuser.groupname=element.groupname;
+			that.curuser.editstate=true;
+		},
+		//选择修改用户
+		updatecuruser(){
+			let that = this;
+			this.$root.createxhr({
+				url:"/updateuser/",
+				data:{
+					id:that.curuser.id,
+					name:that.curuser.name,
+					groupid:that.curuser.groupid
+				},
+				type:"post",
+				success(data){
+					console.log(data)
+					if(data.succ){
+						that.getuserlist();
+						that.exitchange()
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		//删除用户
+		delcuruser(ele){
+			console.log(ele._id)
+			let that = this;
+			this.$root.createxhr({
+				url:"/deluser/",
+				data:{
+					id:ele._id
+				},
+				type:"post",
+				success(data){
+					console.log(data)
+					if(data.succ){
+						that.getuserlist();
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		},
+		exitchange(){
+			let that = this;
+			that.curuser.id="";
+			that.curuser.username="";
+			that.curuser.groupid="";
+			that.curuser.groupname="";
+			that.curuser.editstate=false;
+			that.curuser.groupstate=false;
+		},
+		//确认选择组
+		selcurgroup(ele){
+			let that = this;
+			that.curuser.groupid=ele._id;
+			that.curuser.groupname=ele.groupname;
+			that.curuser.groupstate=false;
+		},
+		//取消选择组
+		exitselgroup(){
+			let that = this;
+			that.curgroup.groupid="";
+			that.curgroup.groupname="";
+		},
+		updateuser(){
+			
+		},
+		updategroup(){
+			let that = this;
+			this.$root.createxhr({
+				url:"/updategroup/",
+				data:{
+					id:that.curgroup.groupid,
+					groupname:that.curgroup.groupname
+				},
+				type:"post",
+				success(data){
+					console.log(data)
+					if(data.succ){
+						that.getgrouplist();
+						that.exitselgroup();
+					}
+				},
+				error(data){
+					console.log(data)
+				}
+			});
+		}
+	}
+}

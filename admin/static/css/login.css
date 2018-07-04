@@ -1,0 +1,375 @@
+@charset "utf-8";
+/* CSS Document */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+p,
+blockquote,
+pre,
+hr,
+figure,
+table,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+menu {
+  margin: 0;
+  padding: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+html,
+body,
+fieldset,
+img,
+iframe,
+abbr {
+  border: 0;
+}
+li {
+  list-style: none;
+}
+textarea {
+  overflow: auto;
+  resize: none;
+}
+a,
+button {
+  cursor: pointer;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+em,
+strong,
+b {
+  font-weight: bold;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+body,
+textarea,
+input,
+button {
+  color: #62a1c9;
+}
+html,
+body {
+  width: 100%;
+  height: auto;
+}
+.hide {
+  display: none;
+}
+/**.keyframes(demo_keyframes, {
+    100% {
+		.transform(rotate(360-43deg));
+        margin-left: -20px;
+        width: 26px;
+	}
+});*/
+html,
+body {
+  font-family: "microsoft yahei";
+  font-size: 14px;
+  width: 100%;
+  min-width: 1200px;
+}
+
+.topbar{
+	position: fixed;
+	background: #fff;
+	width: 100%;
+	height: 50px;
+	box-shadow: 0px 3px 10px #ccc;
+	z-index: 100;
+  top:0;
+  left:0;
+}
+.backdown{
+	z-index: -1;
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	box-shadow: 0px 3px 10px #ccc;
+	left: 10px;
+	
+}
+.xyact-info {
+	width: 350px;
+	height: 50px;
+	background: #fff;
+	position: relative;
+}
+.xyact-info .head{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	left: 10px;
+	background: #fff;
+	overflow: hidden;
+}
+.xyact-info .headimg{
+	width: 90%;
+	height: 90%;
+	margin: 5%;
+	border-radius: 50%;
+}
+.xyact-info	.xyact-name{
+	font-size: 28px;
+	margin:0;
+	margin-left: 80px;
+	line-height: 50px;
+	color:#666;
+	font-weight: 400;
+	font-family: '方正正中黑简体 Regular', '方正正中黑简体';
+}
+
+.loginbg{
+  padding-top:200px;
+  width:100%;
+  height:600px;
+  /*background:#f3f4f6 url(https://nie.res.netease.com/nie/qt/papa/img/login_bg.jpg?1) no-repeat center bottom;*/
+}
+
+.loginarea {
+  position: relative;
+  width: 650px;
+  height: 295px;
+  margin:0 auto;
+  padding-top:55px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2);
+}
+.logintit {
+  height: 80px;
+  line-height: 80px;
+  margin-top: 10px;
+  padding: 0 25px;
+  color: #31b7c6;
+  font-size: 18px;
+}
+.logintit span {
+  display: inline-block;
+  width: 52px;
+  height: 36px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.boxarea {
+  overflow: hidden;
+}
+.boxarea .passlogin {
+  width: 260px;
+  height: auto;
+  float: left;
+  margin-left: 55px;
+}
+.boxarea .passlogin .checkinfo{
+  text-align: center;
+  color: red;
+}
+.boxarea .passlogin ul li {
+  border: 1px solid #d3d3d3;
+  width: 248px;
+  height: 40px;
+  margin-bottom: 12px;
+  background-color: #fff;
+}
+.boxarea .passlogin ul .inbtn label {
+  width: 32px;
+  height: 100%;
+  float: left;
+}
+.boxarea .passlogin ul .inbtn .one {
+  background: url(https://nie.res.netease.com/nie/qt/papa/img/username_bg.png) no-repeat center;
+}
+.boxarea .passlogin ul .inbtn .two {
+  background: url(https://nie.res.netease.com/nie/qt/papa/img/pwd_bg.png) no-repeat center;
+}
+.boxarea .passlogin ul .inbtn .tre {
+  background: url(https://nie.res.netease.com/nie/qt/papa/img/key_bg.png) no-repeat center;
+}
+.boxarea .passlogin ul .inbtn input {
+  width: 208px;
+  height: 100%;
+  float: left;
+  border: none;
+  outline: none;
+}
+.boxarea .passlogin ul .subbtn {
+  height: 40px;
+  border: none;
+  background: none;
+  text-align:center;
+}
+.boxarea .passlogin ul .subbtn input {
+  width: 189px;
+  height: 100%;
+  background:#108CEE;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  outline: none;
+}
+
+.boxarea .segline {
+  float: left;
+  width: 20px;
+  text-align: center;
+  margin-left: 45px;
+}
+.boxarea .segline i {
+  display: block;
+  width: 1px;
+  height: 80px;
+  margin: 0 auto;
+  background-color: #d7d7d7;
+}
+.boxarea .segline span {
+  display: block;
+  margin: 5px 0;
+}
+.boxarea .openlogin {
+  width: 256px;
+  height: 220px;
+  float: right;
+  text-align: center;
+  line-height: 220px;
+}
+.boxarea .openlogin a {
+  display: inline-block;
+  width: 156px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 13px;
+  vertical-align: middle;
+  border: 1px solid #108CEE;
+  border-radius: 25px;
+  color: #108CEE;
+}
+.boxarea .openlogin a:hover{
+  background-color:#108CEE;
+  color: #fff;
+}
+.boxintro {
+
+}
+.boxintro p {
+  line-height: 35px;
+  padding: 0 45px;
+  color: #999;
+}
+.boxintro p i {
+  display: inline-block;
+  width: 13px;
+  height: 10px;
+  color: #333;
+  background: url(../img/u54.png) no-repeat center;
+  background-size: 100% 100%;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.boxintro .introtit {
+  font-size: 14px;
+  color: #333;
+}
+.boxintro .introtit i{
+  display:inline-block;
+  width:16px;
+  height:16px;
+  background:url(https://nie.res.netease.com/nie/qt/papa/img/chrome_icon.png) no-repeat center;
+}
+.boxintro .introtit span{
+  color:#108CEE;
+}
+
+.logininfo{
+  width:600px;
+  margin:40px auto;
+  color:#333;
+}
+.papaintro{
+  text-align: center;
+}
+.papaintro h4{
+  text-align:center;
+  font-size:18px;
+  font-weight: 700px;
+  color:#666666;
+}
+.papaintro .smalltit{
+  text-align:center;
+  font-size:14px;
+  color:#333333;
+  line-height: 30px;
+}
+.papaintro .papaconblock{
+  test-align:center;
+  margin-top:40px;
+}
+.papaintro .papaconblock .conblock{
+  display:inline-block;
+  width:300px;
+  height:227px;
+  margin:0 20px;
+}
+.papaintro .papaconblock .conblock .conimg{
+  width:295px;
+  height:187px;
+  margin:0 auto;
+  background:url(https://nie.res.netease.com/nie/qt/papa/img/stroe_data.png) no-repeat center;
+  background-size:100% 100%;
+}
+.papaintro .papaconblock .conblock .False_origi{
+  width:295px;
+  height:187px;
+  margin:0 auto;
+  background:url(https://nie.res.netease.com/nie/qt/papa/img/False_origi.png) no-repeat center;
+  background-size:100% 100%;
+}
+.papaintro .papaconblock .conblock .auto_disp{
+  width:295px;
+  height:187px;
+  margin:0 auto;
+  background:url(https://nie.res.netease.com/nie/qt/papa/img/auto_disp.png) no-repeat center;
+  background-size:100% 100%;
+}
+.papaintro .papaconblock .conblock  p{
+  line-height: 30px;
+  font-size:16px;
+  color:#333333;
+}
+#NIE-copyRight a{
+  color:#333333;
+}
